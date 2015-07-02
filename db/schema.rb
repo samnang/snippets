@@ -11,12 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702051346) do
+ActiveRecord::Schema.define(version: 20150702081027) do
 
   create_table "snippets", force: :cascade do |t|
-    t.text     "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "content",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "token_id"
+    t.boolean  "private",    default: false
   end
+
+  add_index "snippets", ["token_id"], name: "index_snippets_on_token_id", unique: true
 
 end

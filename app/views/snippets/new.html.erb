@@ -16,7 +16,16 @@
     <%= f.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= f.label :private %>
+    <%= f.check_box :private %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Save' %>
   </div>
 <% end %>
+
+<div class="nav">
+  <%= link_to "Back", root_path %>
+</div>

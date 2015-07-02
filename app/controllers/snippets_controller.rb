@@ -1,6 +1,6 @@
 class SnippetsController < ApplicationController
   def index
-    @snippets = Snippet.recent.page(params[:page])
+    @snippets = Snippet.recent.public.page(params[:page])
   end
 
   def new
@@ -17,12 +17,12 @@ class SnippetsController < ApplicationController
   end
 
   def show
-    @snippet = Snippet.find(params[:id])
+    @snippet = Snippet.find_by!(token_id: params[:id])
   end
 
   private
 
   def snippet_params
-    params.require(:snippet).permit(:content)
+    params.require(:snippet).permit(:content, :private)
   end
 end

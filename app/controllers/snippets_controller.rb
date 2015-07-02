@@ -1,4 +1,6 @@
 class SnippetsController < ApplicationController
+  respond_to :html, :json
+
   def index
     @snippets = Snippet.recent.public.page(params[:page])
   end
@@ -9,11 +11,8 @@ class SnippetsController < ApplicationController
 
   def create
     @snippet = Snippet.new(snippet_params)
-    if @snippet.save
-      redirect_to @snippet
-    else
-      render :new
-    end
+    @snippet.save
+    respond_with @snippet
   end
 
   def show

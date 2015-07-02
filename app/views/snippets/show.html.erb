@@ -1,0 +1,4 @@
+<%= text_area_tag :snippet_content, @snippet.content %>
+
+<%= label_tag :share_this %>
+<%= text_field_tag :share_this, snippet_url(@snippet) %>

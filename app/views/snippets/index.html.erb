@@ -1,0 +1,10 @@
+<h1>Snippets</h1>
+<table class="snippets">
+  <tbody>
+    <% @snippets.each do |snippet| %>
+      <tr><td><%= link_to snippet_summary(snippet), snippet %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @snippets %>
